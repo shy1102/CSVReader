@@ -1,0 +1,60 @@
+package renameAutomator;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+public class CSVReader {
+	public CSVReader() {
+		// TODO Auto-generated constructor stub
+	}		 
+		  public ArrayList<String> readCSV(String Path) {
+		 
+			//String csvFile = "/Users/Automation/Desktop/Automation Test/Aaron-Donald-Data.csv";
+			String csvFile = Path;
+
+			BufferedReader br = null;
+			String line = "";
+			String cvsSplitBy = ",";
+			ArrayList<String> productCode = new ArrayList<String>();
+			productCode.clear();
+			try {
+		 
+				br = new BufferedReader(new FileReader(csvFile));
+				while ((line = br.readLine()) != null) {
+		 
+				        // use comma as separator
+					String[] country = line.split(cvsSplitBy);
+					if(!country[0].equals("Product Code") && !productCode.contains(country[0])) {
+						productCode.add(country[0]);
+						System.out.println("Proudct Code added " + country[0]);
+					}
+					//System.out.println("Proudct Code " + country[0] 
+		            //                     + " , name=" + country[5] + "]");
+		 
+				}
+		 
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				if (br != null) {
+					try {
+						br.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		 
+			System.out.println("Done");
+			return productCode;
+		  }
+		 
+		}

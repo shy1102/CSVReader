@@ -1,0 +1,14 @@
+package renameAutomator;
+
+public class commandCenter {
+	private commandCenter commandCenterInstance; //instance of a command center. Only a singleton instance is allowed
+	public commandCenter(){
+		if(commandCenterInstance == null) {
+			commandCenterInstance = new commandCenter();
+		}
+	}
+	public void main(){
+		CSVReader mainReader = new CSVReader();
+		String Path = "/Users/Automation/Desktop/Automation Test/Aaron-Donald-Data.csv";
+	}
+}

@@ -1,0 +1,25 @@
+package renameAutomator;
+
+import java.io.FileNotFoundException;
+
+public class commandCenter {
+	private commandCenter commandCenterInstance; //instance of a command center. Only a singleton instance is allowed
+	public commandCenter(){
+		if(commandCenterInstance == null) {
+			commandCenterInstance = new commandCenter();
+		}
+	}
+	public static void run() throws FileNotFoundException{
+		CSVReader mainReader = new CSVReader();
+		Renamer mainRenamer = new Renamer();
+		System.out.println("A");
+		String CSVPath = "/Users/Automation/Desktop/Automation Test/Aaron-Donald-Data.csv";
+		String directoryPath = "/Users/Automation/Desktop/Automation Test/";
+		mainRenamer.renameFilesInDirectory(directoryPath, mainReader.readCSV(CSVPath));
+		
+	}
+	public static void main() throws FileNotFoundException{
+		commandCenter.run();
+		
+	}
+}

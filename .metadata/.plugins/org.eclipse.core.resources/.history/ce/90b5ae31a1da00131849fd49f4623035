@@ -1,0 +1,8 @@
+package renameAutomator;
+
+public class commandCenter {
+	private commandCenter; //instance of a command center. Only a singleton instance is allowed
+	public commandCenter(){
+		if(commandCenter)
+	}
+}

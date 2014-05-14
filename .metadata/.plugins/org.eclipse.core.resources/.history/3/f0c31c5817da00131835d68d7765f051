@@ -1,0 +1,29 @@
+package renameAutomator;
+
+import java.io.FileReader;
+import java.lang.*;
+import java.util.List;
+public class CSVReader {
+	public CSVReader(FileReader fileReader) {
+		// TODO Auto-generated constructor stub
+	}
+	String[] row = null;
+	String csvFilename = "C:\\work\\sample.csv";
+	 
+	CSVReader csvReader = new CSVReader(new FileReader(csvFilename));
+	List content = csvReader.readAll();
+	 
+	for (Object object : content) {
+	    row = (String[]) object;
+	     
+	    System.out.println(row[0]
+	               + " # " + row[1]
+	               + " #  " + row[2]);
+	}
+	//...
+	private List readAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	csvReader.close();
+}
