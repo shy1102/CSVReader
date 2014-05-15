@@ -1,0 +1,11 @@
+package renameAutomator;
+
+import javax.swing.JFileChooser;
+
+public class UserPathSelectorGUI extends JFileChooser {
+	public UserPathSelectorGUI() {
+		JFileChooser j = new JFileChooser();
+		j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		Integer opt = j.showSaveDialog(this);	
+	}
+}

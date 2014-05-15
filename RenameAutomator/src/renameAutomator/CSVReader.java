@@ -17,13 +17,11 @@ public class CSVReader {
 	}		 
 	/**
 	 * reads a CSV and grabs data
-	 * @param Path
+	 * @param Path CSV absolute path
 	 * @param position
 	 * @return
 	 */
 		  public ArrayList<String> readCSV(String Path) {
-		 
-			//String csvFile = "/Users/Automation/Desktop/Automation Test/Aaron-Donald-Data.csv";
 			String csvFile = Path;
 
 			BufferedReader br = null;
@@ -49,7 +47,6 @@ public class CSVReader {
 						System.out.println("teamname is : " + country[1]);
 					}
 				}
-		 
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -63,11 +60,20 @@ public class CSVReader {
 					}
 				}
 			}
-			this.productCode = productCode;
-			this.teamName = teamName;
+			setTeamName(replaceSpacesFromNames(teamName));
 			System.out.println("Reading CSV completed");
 			return productCode;
 		  }
+		  
+	public ArrayList<String> replaceSpacesFromNames(ArrayList<String> temp) {
+		ArrayList<String> newList = new ArrayList<String>();
+		newList.clear();
+		for(int i = 0; i < temp.size(); i++ ) {
+			newList.add(temp.get(i).replace(' ', '_'));
+			System.out.println(temp.get(i).replace(' ', '_'));
+		}
+		return newList;
+	}
 	/**
 	 * @return the productCode
 	 */

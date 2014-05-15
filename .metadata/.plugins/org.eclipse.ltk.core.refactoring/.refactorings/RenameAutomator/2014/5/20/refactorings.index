@@ -14,3 +14,7 @@
 1400012098052	Encapsulate field 'productCode'
 1400012101879	Encapsulate field 'teamName'
 1400013465656	Delete element
+1400077233484	Encapsulate field 'currentPath'
+1400079706896	Delete element
+1400080035855	Encapsulate field 'CSVAbsolutePath'
+1400080039925	Encapsulate field 'DestinationAbsolutePath'
